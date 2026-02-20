@@ -4,6 +4,12 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #faf8f5;
+}
+
+body {
+  background-color: #faf8f5;
+  color: #1a2332;
 }
 
 /* Subtle grain/noise overlay */
