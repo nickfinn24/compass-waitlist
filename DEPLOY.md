@@ -1,43 +1,51 @@
-# Deploy Compass Waitlist to the Web
+# Deploy Compass Waitlist
 
-## Option 1: Vercel (recommended, free)
+## Fix: Clean deployment (no folder confusion)
 
-1. **Push to GitHub** (if not already):
-   ```bash
-   git add .
-   git commit -m "Add waitlist landing"
-   git push
-   ```
+The main repo has multiple projects. For a clean deploy, use a **standalone repo**:
 
-2. **Deploy on Vercel**:
-   - Go to [vercel.com](https://vercel.com) and sign in (GitHub)
-   - Click **Add New** → **Project**
-   - Import your `career-platform` repo
-   - Set **Root Directory** to `waitlist-landing`
-   - Add environment variables (Settings → Environment Variables):
-     - `ADMIN_PASSWORD` – your admin password
-     - `NEXT_PUBLIC_SUPABASE_URL` – (when ready)
-     - `NEXT_PUBLIC_SUPABASE_ANON_KEY` – (when ready)
-   - Click **Deploy**
+### Step 1: Create new repo on GitHub
 
-3. Your site will be live at `https://your-project.vercel.app`
+1. Go to [github.com/new](https://github.com/new)
+2. Name it `compass-waitlist`
+3. Leave it **empty** (no README)
+4. Create
 
-## Option 2: Vercel CLI (after login)
+### Step 2: Push waitlist to the new repo
+
+Run from the `career-platform` folder:
 
 ```bash
-cd waitlist-landing
-npx vercel login
-npx vercel --prod
+cd /Users/nicklogan/Projects/career-platform
+git push https://github.com/YOUR_USERNAME/compass-waitlist.git waitlist-only:main
 ```
 
-## Option 3: Netlify
+Replace `YOUR_USERNAME` with your GitHub username (e.g. `nickfinn24`).
 
-1. Go to [netlify.com](https://netlify.com) → Add new site → Import from Git
-2. Select your repo, set base directory to `waitlist-landing`
-3. Build command: `npm run build`
-4. Publish directory: `.next` (or use Netlify’s Next.js plugin)
-5. Add env vars in Site settings → Environment variables
+### Step 3: Deploy on Vercel
 
-## Custom domain
+1. Go to [vercel.com/new](https://vercel.com/new)
+2. Import `compass-waitlist` (no root directory needed – it’s already the app root)
+3. Add env vars: `ADMIN_PASSWORD` (and Supabase vars when ready)
+4. Deploy
 
-In Vercel/Netlify: Project Settings → Domains → Add your domain.
+---
+
+## Alternative: Deploy from main repo
+
+If you prefer to keep everything in Career-Platform-MVP:
+
+1. Go to [vercel.com/new](https://vercel.com/new)
+2. Import `Career-Platform-MVP`
+3. **Important:** Set **Root Directory** to `waitlist-landing`
+4. Add env vars
+5. Deploy
+
+---
+
+## Remove the wrong "landingpage" repo
+
+If Vercel created a `landingpage` repo by mistake:
+
+1. Go to [github.com/YOUR_USERNAME/landingpage](https://github.com)
+2. Settings → Delete this repository (if you don’t need it)

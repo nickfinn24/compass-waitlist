@@ -2,7 +2,7 @@
 
 A conversion-focused landing page for Compass (career clarity + mentorship for students). Built with Next.js, TypeScript, and Tailwind.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/nickfinn24/Career-Platform-MVP&project-name=compass-waitlist&root-directory=waitlist-landing)
+**Deploy:** See [DEPLOY.md](./DEPLOY.md) for clean deployment (avoids folder confusion).
 
 ## Features
 
